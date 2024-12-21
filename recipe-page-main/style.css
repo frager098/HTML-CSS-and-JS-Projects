@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+body{
+    background-color:   hsl(30, 54%, 90%);
+    
+}
+.recipe-page{
+    border-radius: 20px;
+    background-color:  hsl(0, 0%, 100%);
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 8rem;
+    font-family: 'Outfit' ;
+    font-weight: 400 ;
+}
+b{
+    color: hsl(24, 5%, 18%);
+}
+.inner-part{
+    width: 90% ;
+    margin-left:2.5rem;
+}
+img{
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius:10px;    
+}
+#preparation-list{
+    background-color: hsl(330, 100%, 98%);
+    border-radius: 15px;
+    line-height: 2rem;
+}
+h1{
+    font-family: 'Young Serif' ;
+    font-weight:400;
+    color:hsl(24, 5%, 18%);
+}
+h3{
+    font-weight: 700;
+    color:   hsl(332, 51%, 32%);
+    
+}
+h2{
+    font-family: 'Young Serif';
+    font-weight: 400;
+    color:  hsl(14, 45%, 36%);
+    display: block;
+}
+table{
+    margin-left: 2rem;
+ 
+}
+.second{
+    
+    font-weight: 700;
+    display: block;
+    margin-left: 15rem;
+    color:  hsl(14, 45%, 36%);
+}
+/* .attribution{
+    text-align: center;
+} */
