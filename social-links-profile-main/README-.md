@@ -19,7 +19,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live site URL](https://sprightly-queijadas-76825c.netlify.app/)
 
 ## My process
 
@@ -35,4 +35,4 @@ Gave me more confidence on HTML and CSS
 
 ## Author
 
-- Frontend Mentor - [@frager098](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@frager098](https://www.frontendmentor.io/profile/frager098)
