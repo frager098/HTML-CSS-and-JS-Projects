@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'myFont';
+    src: url('./Outfit-Regular.ttf');
+    font-weight: 400;
+    font-size: 15px;
+}
+body{
+    font-family: 'myFont';
+    text-align: center;
+    background-color:hsl(212, 45%, 89%);
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+.qr{
+    background-color: white;
+    border-radius: 15px;
+    width: 18%;
+    height: 22rem;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+     padding: 1rem;
+    margin-left: 40%;
+    margin-top: 10rem;
+}
+
+img{
+    width: 95%; 
+    height: 15rem;
+    border-radius: 15px;
+}
+
+h4{
+    font-weight: 700;
+    color: hsl(218, 44%, 22%);
+    font-size: 20px;
+    margin-bottom:-20px;
+    position: relative;
+    bottom: 0.7rem;
+}
+p{
+    color: hsl(216, 15%, 48%);
+    font-size: 15px;
+    
+}
+.attribution{
+    position: absolute; 
+    bottom: 1rem; 
+    text-align: center; 
+    width: 100%;
+    text-align: center;
+}
