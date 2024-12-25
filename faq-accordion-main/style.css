@@ -1,0 +1,63 @@
+@font-face{
+    font-family: 'myFont';
+    src: url('./assets/fonts/static/WorkSans-Regular.ttf');
+    font-weight: 400;
+    font-size: 16px;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'myFont';
+    background-color: hsl(275, 100%, 97%);
+}
+.background{
+    height: 16rem;
+    background: url('./assets/images/background-pattern-desktop.svg');
+}
+
+.header > img{
+    width: 7%;
+    margin:0rem 1.2rem;
+}
+.header{
+    font-size: 150%;
+    display: flex;
+    align-items: center;
+    
+}
+.container{
+    /* background-color:  hsl(0, 0%, 100%); */
+    background-color: hsl(0, 0%, 100%);
+    width: 37.5%;
+    margin-left: 32%;
+    margin-top: -10rem;
+    border-radius: 15px;
+}
+.question{
+    margin-left: 1rem;
+    cursor: pointer;
+    line-height: 4rem;
+    display: flex;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color:hsl(0, 0%, 100%) ;
+    object-fit: cover;
+    border-bottom:1px solid hsl(275, 100%, 97%);
+}
+.question:hover{
+    color:hsl(292, 42%, 14%);
+}
+.img{
+    width: 4.5% ;
+    margin-right: 1rem  ;
+}
+.answer{
+    font-weight: 400;
+    margin-left: 1rem;
+    color: hsl(292, 16%, 49%);
+}
+.no-display{
+    display: none;
+}
