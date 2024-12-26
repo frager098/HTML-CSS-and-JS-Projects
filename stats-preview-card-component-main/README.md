@@ -5,30 +5,23 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 ## Table of contents
 
 - [Overview](#overview)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
 
-### Screenshot
-
-![](./design%20ss.PNG)
 
 
 ### Links
 
 - Solution URL: [Solution URL here](https://github.com/frager098/CSS-Projects/tree/main/stats-preview-card-component-main)
-- Live Site URL: [Live site URL here](https://app.netlify.com/sites/zingy-tapioca-3e5986/configuration/general)
+- Live Site URL: [Live site URL here](https://zingy-tapioca-3e5986.netlify.app/)
 
 ## My process
 
