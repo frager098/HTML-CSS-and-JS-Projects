@@ -27,8 +27,8 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL here](https://github.com/frager098/CSS-Projects/tree/main/stats-preview-card-component-main)
+- Live Site URL: [Live site URL here](https://app.netlify.com/sites/zingy-tapioca-3e5986/configuration/general)
 
 ## My process
 
