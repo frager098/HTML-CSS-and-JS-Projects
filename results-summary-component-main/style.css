@@ -1,0 +1,172 @@
+@font-face{
+    font-family: 'myFont';
+    src:url('./assets/fonts/static/HankenGrotesk-Medium.ttf');
+    font-size: 18px;
+    font-weight: 500;
+}
+body{
+    font-family: 'myFont';
+    background-color:   hsl(0, 0%, 90%);
+}
+.container{
+    color: hsla(0, 0%, 100%,0.8);
+    width: 37.5%;  
+    margin-left: 30%;
+    margin-top:10% ;
+    display: flex;
+}
+.inner-part1 , .inner-part2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius:15px;
+}
+.inner-part1{
+    background-color: hsla(241, 81%, 54% , 0.85);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.result{
+
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: hsla(256, 72%, 46%, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+h5{
+    font-weight: normal;
+    color: hsla(0, 0, 100%, 0.1);
+    z-index: 2;
+}
+#seventy-six{
+    position: relative;
+    left: 2.45rem;
+    top: 2rem;
+    font-size: 300%;
+    z-index: 3;
+    color: white;
+}
+#hundred{
+    position: relative;
+    left: 3rem;
+    top: 1.5rem;
+    font-size: 11px;
+}
+h2{
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: white;
+}
+p{
+    width: 80%;
+    text-align: center;
+    font-weight: 400;
+    word-spacing: 2px;
+    font-size: 80%;
+    margin-bottom: 2rem;
+    line-height: 150%;
+}
+.result::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: hsla(224, 30%, 27%,0.35);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 1;
+
+}
+.inner-part2{
+    justify-content: space-between;
+    background-color: hsl(0, 0%, 100%);
+}
+.data-instance{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border-radius: 8px;
+}
+.data{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    bottom: 1.5rem;
+}
+.reaction-instance{
+    position: relative;
+    right: 1rem;
+    color:hsla(0, 100%, 67%,1);
+}
+.memory-instance{
+    position: relative;
+    right: 1.1rem;
+    color:  hsl(39, 100%, 56%);
+}
+.verbal-instance{
+    position: relative;
+    right: 1.4rem;
+    color: hsl(166, 100%, 37%);
+}
+.visual-instance{
+    position: relative;
+    right: 1.4rem;
+    color: hsl(234, 85%, 45%);
+}
+.reaction{
+    background-color:  hsla(0, 100%, 67%,0.1);
+}
+.memory{
+    background-color: hsla(39, 100%, 56% ,0.1);
+}
+.verbal{
+    background-color:  hsla(166, 100%, 37%,0.1);
+}
+.visual{
+    background-color:  hsla(234, 85%, 45%,0.1);
+}
+button{
+    width: 80%;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: hsl(224, 30%, 27%);
+    color: white; 
+}
+.inner-part2 h5{
+    width: 80%;
+    color: hsl(224, 30%, 27%);
+    position: relative;
+    bottom: 1rem;
+    font-size: 120%;
+
+}
+button:hover{
+    background-color:hsla(241, 81%, 54%,0.85);
+}
+.individual-results{
+    color: hsla(224, 30%, 27%,0.5);
+}
+.individual-results span{
+    color:hsl(224, 30%, 27%) ;
+}
+.attribution{
+    position: absolute;
+    bottom: 1rem;
+    width: 99.4%;
+    text-align: center;
+}
