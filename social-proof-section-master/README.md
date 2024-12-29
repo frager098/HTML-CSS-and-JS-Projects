@@ -19,11 +19,11 @@ This is a solution to the [Social proof section challenge on Frontend Mentor](ht
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./design/final%20design%20ss.PNG)
 
 
 - Solution URL: [Solution URL here](https://github.com/frager098/CSS-Projects)
-- Live Site URL: [Live site URL here](https://guileless-torte-f67918.netlify.app/)
+- Live Site URL: [Live site URL here](https://statuesque-lily-968aa9.netlify.app/)
 
 ## My process
 
