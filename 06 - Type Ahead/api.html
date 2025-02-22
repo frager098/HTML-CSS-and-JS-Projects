@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" name="currInput" class="search" placeholder="City or State" value="">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const data = [];
+const toSearch = document.querySelector(".search");
+const suggestions = document.querySelector(".suggestions");
+// async function fetching(url){
+//   console.log("23")
+//   const response = await fetch(endpoint) ;
+//   console.log("25")
+//     responseJson = await response.json() ;
+//     console.log("27")
+//     await data.push(...responseJson);
+//     console.log("28")
+//     return data ;
+//   }
+//   // console.log(data)
+
+fetch(endpoint) //returns raw data 
+.then(blob => blob.json()) //returns readable data in JSON
+.then(response => data.push(...response)); //Push response in an array
+  async function filtering(wordToMatch){ //funtion filters array with respect to input
+    const items = data.filter( item => {
+    const str1 = (String(item.city)).toLowerCase()
+    const str2 = (String(item.state)).toLowerCase()
+    // const myRegex = new RegExp(wordToMatch , 'gi')
+    // console.log(myRegex) ;
+    return (str1.includes(wordToMatch) || str2.includes(wordToMatch))
+    
+  })
+  return items;
+}
+function numberWithCommas(x) { //function add commans in numbers
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+async function display(){
+    const val = (String(this.value)).toLowerCase();
+    const items = await filtering(val);
+      const showItems = items.map( item => {
+        const regex = new RegExp(this.value ,'gi'); //gi means global and insensitive(case sensitivity)
+        const cityName = item.city.replace(regex,`<span class="hl">${this.value}</span>`);
+        const stateName = item.state.replace(regex,`<span class="hl">${this.value}</span>`);
+
+      return `
+      <li>
+        <span>${cityName},${stateName}</span>
+        <span>${numberWithCommas(item.population)}</span>
+        </li>
+      `;
+      }).join("")
+      
+      suggestions.innerHTML = showItems;
+}
+// fetching(endpoint)
+toSearch.addEventListener("keyup" , display);
+// .then ( () => console.log(data))
+// .catch(error => console.log(error));
+// const xhr = new XMLHttpRequest();
+// async function fetching(){
+//     const response = await fetch('https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json') ;
+//     const result =  await response.json();
+//     return result
+//   }
+// const result = fetching()
+// .then(msg => {
+//   let data = "";
+//   const array = Array.from(msg);
+  
+//   const form = document.querySelector(".search-form")
+//   const input = document.querySelector(".search");
+//   const list = document.querySelector(".suggestions")
+//   input.addEventListener("keydown" , toSearchCity)
+//   function toSearchCity(e){
+//     data += `${e.key}`
+//     // console.log(typeof data, "value")
+//     array.filter( element => {
+      
+//       // const currElem = Array.from(element)
+//       // console.log(currElem)
+//       // console.log(element,"element");
+//       // console.log(e.key,"key");
+//       if(element.city.includes(data)){
+//        const listItem = document.createElement("li");
+//        listItem.textContent = element.city ;
+//        listItem.appendChild(list);
+//         // console.log(element.city , "data");
+//       }
+//       console.log(data , "data")
+//   })
+//   }
+  
+
+// })
+</script>
+</body>
+</html>

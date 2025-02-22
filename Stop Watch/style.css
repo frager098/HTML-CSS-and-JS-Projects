@@ -1,0 +1,51 @@
+* , *::before , *::after{
+    box-sizing: border-box;
+}
+.main{
+    box-sizing: border-box;
+    background-color:aqua ;
+    width: 50%;
+    margin-left: 25%;
+    padding: 4em 0 ;
+}
+.inner__container{
+    /* width:300px; */
+    /* height: 300px; */
+    width: 40%;
+    height: auto;
+    aspect-ratio: 1/1 ;
+    border-radius: 50%;
+    background-color:#FFF;
+    margin: 0  auto;
+}
+.buttons{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.fa-circle-play{
+    font-size: 3rem;
+}
+i{
+    font-size: 1rem;
+    color:red;
+}
+.pause,.reset{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+i:focus{
+    opacity: 0.5;
+}
+h1{
+    text-align: center;
+    padding: 1em 0em 0 ; 
+    /* margin-top: 1.5em; */
+    /* margin-bottom: 1em; */
+}

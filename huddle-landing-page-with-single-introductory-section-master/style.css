@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0px;
+    padding: 0px;
+    background-image: url("./images/bg-desktop.svg");
+    background-repeat: no-repeat;
+    background-color:  hsl(257, 40%, 49%);
+    font-family:"Open Sans","sans-serif";
+    font-weight: 400;
+    color: white;
+}
+.main{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2.5em;
+    max-width: 1238px;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+    margin: 0 auto;
+    max-width: 1250px;
+}
+.column-2{
+    width: 45%;
+    color: white;
+    padding: 5px;
+}
+.column-2 > h1{
+    font-family: "Poppins","sans-serif";
+    font-weight: 500;
+}
+.column-2 > p {
+    font-weight:300 ;
+    line-height: 1.5em;
+    
+}
+.column-1{
+    width: 49%;
+}
+
+.column-1 > img {
+    width: 100%;
+}
+button{
+    padding: 12px;
+    width: 30%;
+    border-radius: 20px;
+    border: none;
+    
+}
+button:hover{
+    background-color: hsl(300, 69%, 71%);
+    cursor:pointer;
+}
+#header{
+    margin-bottom: 4em;
+}
+i{
+    color:white;
+    font-size: 1.5rem;
+}
+.margin-right{
+    margin-right: 0.6em;
+}
+.icons{
+    display: flex;
+    justify-content: flex-end;
+}
+@media (min-width:900px){
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media (max-width:900px){
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .column-2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .icons{
+        justify-content: center;
+    }
+    button{
+        width: 50%;
+    }
+}
+

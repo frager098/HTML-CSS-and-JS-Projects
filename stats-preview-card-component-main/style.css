@@ -45,6 +45,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
+    
     background-color: hsl(277, 64%, 61%); /* Purple overlay */
     mix-blend-mode: multiply; /* Will blend it with it's parent background */
     /* Optional for a blended effect */

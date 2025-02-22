@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoped CSS Variables and JS</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls">
+    <label for="spacing">Spacing:</label>
+    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <label for="blur">Blur:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
+    <label for="base">Base Color</label>
+    <input id="base" type="color" name="base" value="#ffc600">
+  </div>
+  
+    <img src="./jakob-owens-1_0KyvVdtP4-unsplash.jpg" alt="">
+  <style>
+
+    :root{
+      --base : yellow ; 
+      --spacing : 10px ;
+      --blur: 0px ;
+    }
+    img{
+      background: var(--base);
+      padding: var(--spacing);
+      filter: blur(var(--blur));
+    }
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+    body {
+      min-width: 100vh;
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 3.1rem;
+    }
+
+    img{
+      width: 90%;
+      height: 6em;
+      max-width: 100%;
+    }
+    .controls {
+      margin-bottom: 3.1em;
+    }
+    input {
+      width: 100px;
+    }
+    .hl{
+      color: var(--base);
+    }
+  </style>
+
+  <script>
+  const inputs = document.querySelectorAll("input") ;
+  function update(){
+    // const root = document.documentElement
+    const suffix = this.dataset.sizing || "" ;
+    // let suffix = (this.name === "blur" || this.name === "spacing") ? "px" : "" ;
+    document.documentElement.style.setProperty(`--${this.name}`,event.target.value + suffix)
+  }
+  inputs.forEach( input => input.addEventListener("mousemove" , update) )
+  inputs.forEach( input => input.addEventListener("change" , update))
+  </script> 
+
+</body>
+</html>

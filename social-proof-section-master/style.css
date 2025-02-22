@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 body{
     margin: 0px;
     padding: 0px;
@@ -8,12 +9,22 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 4rem;
-    background-image: url('./images/bg-pattern-bottom-desktop.svg');
-    background-repeat: no-repeat;
+    
+        position: relative; /* Ensure positioning context for the background */
+        background: 
+            url('./images/bg-pattern-top-desktop.svg') no-repeat left top,
+            url('./images/bg-pattern-bottom-desktop.svg') no-repeat right bottom;
+        background-size: 50% auto, 80% auto; /* Adjust sizes as needed */
+        /* background-attachment: fixed; Mimics 'position: fixed' from pseudo-element */
+    
+    
+    /* position: relative;
+    background: 
+    url('./images/bg-pattern-bottom-desktop.svg') no-repeat bottom,url('./images/bg-pattern-top-desktop.svg') no-repeat top;
     background-size:cover ;
-    position: relative;
+    background-repeat: no-repeat; */
 }
-body::after{
+/* body::after{
     width: 100%;
     height: 100%;
     content: "";
@@ -22,7 +33,7 @@ body::after{
     left: 0;
     background-image: url('./images/bg-pattern-top-desktop.svg');
     background-repeat: no-repeat;
-}
+} */
 
 
 .social-proof{
@@ -31,6 +42,7 @@ body::after{
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /* border: 1px solid black; */
 }
 .upper-part{
     display: flex;
@@ -78,14 +90,14 @@ i{
     display: flex;
     gap: 3%;
     width: 90.2%;
-    padding: 40px;
+    /* border: 1px solid; */
 }
 .testimonial{
     width: 27.5%;
     background-color: hsl(300, 43%, 22%);
     color: hsl(300, 24%, 96%);
     border-radius: 6px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .testimonial-header{
     display: flex;
@@ -116,4 +128,8 @@ img{
 .testimonial-3{
     position: relative;
     top: 2rem;
+}
+.attribution{
+    position: absolute;
+    bottom: -6rem;
 }

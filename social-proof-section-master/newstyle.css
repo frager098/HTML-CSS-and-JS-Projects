@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "League Spartan","sans-serif";
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+    
+        position: relative; /* Ensure positioning context for the background */
+        background: 
+            url('./images/bg-pattern-top-desktop.svg') no-repeat left top,
+            url('./images/bg-pattern-bottom-desktop.svg') no-repeat right bottom;
+        background-size: 50% auto, 80% auto; /* Adjust sizes as needed */
+        /* background-attachment: fixed; Mimics 'position: fixed' from pseudo-element */
+    
+    
+    /* position: relative;
+    background: 
+    url('./images/bg-pattern-bottom-desktop.svg') no-repeat bottom,url('./images/bg-pattern-top-desktop.svg') no-repeat top;
+    background-size:cover ;
+    background-repeat: no-repeat; */
+}
+/* body::after{
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('./images/bg-pattern-top-desktop.svg');
+    background-repeat: no-repeat;
+} */
+
+
+.social-proof{
+    width: 80%;
+    color:hsl(300, 43%, 22%) ;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* border: 1px solid black; */
+}
+.upper-part{
+    display: flex;
+    gap: 4%;
+}
+.header{
+    width: 40%;
+}
+.header > h2{
+    color:  hsl(300, 43%, 22%);
+    font-size: 250%;
+}
+.header > p {
+    margin-top: -15px;
+    line-height: 1.1rem;
+}
+.ratings{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color:hsl(300, 43%, 22%) ;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 2rem;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    background-color:  hsla(333, 80%, 67%,0.03);
+    border-radius: 6px;
+}
+i{
+    color: orange;
+}
+.rating-2{
+    margin-left: 2.5rem;
+}
+.rating-3{
+    margin-left: 5rem;
+}
+.testimonials{
+    display: flex;
+    gap: 3%;
+    width: 90.2%;
+    /* border: 1px solid; */
+}
+/* .testimonial{
+    width: 27.5%;
+    background-color: hsl(300, 43%, 22%);
+    color: hsl(300, 24%, 96%);
+    border-radius: 6px;
+} */
+/* .testimonial-header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+    font-size: x-small;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+}
+.testimonial-header span{
+    color:  hsl(333, 80%, 67%);
+}
+img{
+    width: 35px;
+    height: 35px;
+    border-radius:50%;
+}
+.testimonial >p{
+    font-weight: 400;
+    line-height: 1.2rem;
+    margin-left: 5px;
+}
+.testimonial-2{
+    position: relative;
+    top: 1rem;
+} */
+/* .testimonial-3{
+    position: relative;
+    top: 2rem;
+} */
+.attribution{
+    position: absolute;
+    bottom: -6rem;
+}
+blockquote{
+    border: 1px solid black;
+    /* width: 100%; */
+    /* padding-left: 25px;
+    padding-right: 25px; */
+    /* object-fit: contain; */
+}

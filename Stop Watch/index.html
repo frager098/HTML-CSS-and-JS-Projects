@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main class="main">
+        <div class="container">
+            <div class="inner__container">
+                <h1> 00 : 00 : 00</h1>
+                <div class="buttons">
+                    <span class="pause button">
+                        <i class="fa-solid fa-square" style="color:white"></i>
+                    </span>
+                    <span class="button">
+                        <i class="fa-solid fa-circle-play"></i> 
+                    </span>
+                    <span class="reset button">
+
+                        <i class="fa-solid fa-rotate-left" style="color:white"></i>    
+                    </span>    
+                </div>
+               </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/ac8b5f7f28.js" crossorigin="anonymous">
+</script> 
+<script>
+        let [seconds , minutes , hours ]  = [ 0 , 0 , 0]
+        const displayTime = document.getElementsByTagName("h1")[0] ;
+        const buttons = document.querySelectorAll(".button");
+        let timer = null;
+        // function watchStart(){
+        //     seconds ++ ;
+        //     if(seconds === 60 ){
+        //         seconds = 0 ;
+        //         minutes++;
+        //         if ( minutes === 60 ){
+        //             minutes = 0 ;
+        //             hours ++ ;
+        //         }
+        //     }
+        //         displayTime.innerHTML = getZero(hours) + " :" + getZero (minutes) + " :" + getZero(seconds);  
+            
+        // }
+        //     buttons[1].addEventListener("click" , function (){
+        //             if ( timer !== null){
+        //                 clearInterval(timer);
+        //                 console.log(timer ,"t")
+        //             }
+        //         timer = setInterval(watchStart , 1000);
+        //         }
+        //     )
+        //         buttons[0].addEventListener("click" , function (){
+        //         clearInterval(timer);
+        //     }
+        // )
+        //     buttons[2].addEventListener("click" , function  reset (){
+        //         clearInterval(timer)
+        //         displayTime.innerHTML = "00 : 00 : 00" ;
+        //         seconds = 0 ;
+        //         minutes = 0 ; 
+        //         hours = 0 ;
+        //     }
+        // ) 
+        // console.log("0" + 2)
+        //     function getZero ( number ) {
+        //         return ( number < 10 ? "0" + number : number )
+        //     }
+        const stopwatch = {
+  timer: null,
+  seconds: 0,
+  minutes: 0,
+  hours: 0,
+  displayTime: document.querySelector("h1"),
+  start() {
+    if (this.timer !== null) clearInterval(this.timer);
+    this.timer = setInterval(() => this.update(), 1000);
+  },
+  pause() {
+    clearInterval(this.timer);
+  },
+  reset() {
+    clearInterval(this.timer);
+    this.seconds = this.minutes = this.hours = 0;
+    this.display();
+  },
+  update() {
+    this.seconds++;
+    if (this.seconds === 60) {
+      this.seconds = 0;
+      this.minutes++;
+      if (this.minutes === 60) {
+        this.minutes = 0;
+        this.hours++;
+      }
+    }
+    this.display();
+  },
+  display() {
+    this.displayTime.textContent = `${this.pad(this.hours)} : ${this.pad(this.minutes)} : ${this.pad(this.seconds)}`;
+  },
+  pad(num) {
+    return num < 10 ? "0" + num : num;
+  },
+};
+
+// Event Listeners
+buttons[1].addEventListener("click", () => stopwatch.start());
+buttons[0].addEventListener("click", () => stopwatch.pause());
+buttons[2].addEventListener("click", () => stopwatch.reset());
+
+</script>
+</body>
+</html>
