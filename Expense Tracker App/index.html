@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <section class="section section__1">
+            <h2>Total Balance</h2>
+            <p>$0.00</p>
+            <div class="row">
+                <div class="col">
+                    <h2>Income</h2>
+                    <p>$0.00</p>
+                </div>
+                <div class="col">
+                    <h2>Expense</h2>
+                    <p>$0.00</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section__2">
+            <h1>Transactions</h1>
+            <div class="list">
+                <p>No transactions.</p>
+            </div>
+        </section>
+        <section class="section section__3">
+            <h1>Add Transaction</h1>
+            <div class="row bgc__indianred">
+                <div class="col">
+                    <h2>Income</h2>
+                </div>
+                <div class="col">    
+                    <h2>Expense</h2>
+                </div>
+            </div>
+            <form action="#">
+                <label for="name">
+                    <p>Name</p>
+                    <input type="text" id="name">
+                </label>
+                <div class="row">
+                    <div class="col">
+                        <label for="amount">
+                            <p>Amount</p>
+                        </label>
+                            <input size="number" type="number" id="amount">
+                    </div>
+                    <div class="col">
+                        <label for="date">
+                            <p>Date</p>
+                        </label>
+                            <input type="date" id="date">
+                    </div>
+                </div>
+                <input type="submit">
+            </form>
+        </section>
+    </div>
+
+</body>
+
+</html>
