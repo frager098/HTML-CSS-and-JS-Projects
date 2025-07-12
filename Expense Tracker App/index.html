@@ -12,61 +12,81 @@
 </head>
 
 <body>
-    <div class="container">
+    <main class="main">
         <section class="section section__1">
-            <h2>Total Balance</h2>
-            <p>$0.00</p>
+            <div class="container">
+                <h2>Total Balance</h2>
+                <p class="balance__text">$0.00</p>
             <div class="row">
                 <div class="col">
                     <h2>Income</h2>
-                    <p>$0.00</p>
+                    <p class="income">$0.00</p>
                 </div>
                 <div class="col">
                     <h2>Expense</h2>
-                    <p>$0.00</p>
+                    <p class="expense">$0.00</p>   
                 </div>
             </div>
+        </div>
         </section>
         <section class="section section__2">
             <h1>Transactions</h1>
             <div class="list">
-                <p>No transactions.</p>
+                <ul>
+                    <li>
+                        <div class="name__date">
+                            <p>Arham</p>
+                            <p>7/11/25</p>
+                        </div>
+                        <div class="value">
+                            <p>$100</p>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <p>No transactions.</p> -->
             </div>
         </section>
         <section class="section section__3">
             <h1>Add Transaction</h1>
             <div class="row bgc__indianred">
                 <div class="col">
-                    <h2>Income</h2>
+                    <h2 class="section__3--h2
+                    toggle__bgc--white">Income</h2>
                 </div>
                 <div class="col">    
-                    <h2>Expense</h2>
+                    <h2 class="section__3--h2">Expense</h2>
                 </div>
             </div>
-            <form action="#">
-                <label for="name">
-                    <p>Name</p>
-                    <input type="text" id="name">
+            <div class="form">
+                <form action="#">
+                    <label for="name">
+                    <p class="form__text">Name</p>
                 </label>
-                <div class="row">
-                    <div class="col">
+                    <input type="text" size="" id="name">
+                <div class="row form__row">
+                    <div class="col form__col--1">
                         <label for="amount">
-                            <p>Amount</p>
+                            <p class="form__text">
+                                Amount
+                            </p>
                         </label>
-                            <input size="number" type="number" id="amount">
-                    </div>
-                    <div class="col">
+                            <input size="number" type="number" id="amount" placeholder="0">
+                    </div> 
+                    <div class="col form__col--2">
                         <label for="date">
-                            <p>Date</p>
+                            <p class="form__text">
+                                Date
+                            </p>
                         </label>
                             <input type="date" id="date">
                     </div>
                 </div>
-                <input type="submit">
+                <input type="submit" class="submit">
             </form>
+        </div>
         </section>
-    </div>
-
+    </main>
+    
 </body>
 
 </html>
