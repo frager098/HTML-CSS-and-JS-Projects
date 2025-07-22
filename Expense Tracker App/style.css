@@ -35,44 +35,92 @@ body{
     justify-content: space-around;
 }
 h2{
-    font-family: "Poppins",sans-serif;
-    font-size: 0.75rem;
+    margin-bottom: 0;
+    line-height: 2;
+    font-size: 0.8rem;
     font-weight:600;
+    font-family: "Poppins",sans-serif;
 }
 .balance__text{
     font-size: 2.25rem;
     margin: 0;
-    font-weight: 600;
+    font-weight: bolder;
 }
 .income,.expense{
+    margin: 0;
     font-size: 1.25rem;
     font-weight: 600;
 }
-.list{
-    border: 2px dashed gray;
-    min-height: 170px;
-    /* display: grid;
-    place-items: center; */
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    overflow-y: auto;
+}
+
+ul:empty{
+    border: 2px dashed #ddd;
+    display: grid;
+    place-content: center;
+    /* min-height: 170px; */
+}
+
+ul:empty::before{
+    content: attr(data-placeholder);
+}
+.list__item{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* flex: 0; */
+    padding: 0px;
+    /* border: 2px solid red; */
 }
 .name__date{
     display: flex;
     flex-direction: column;
+    /* border: 2px solid green; */
+    
 }
-ul{
-    list-style: none;
+.position__date{
+    position: relative;
+    /* bottom: 1em; */
+    font-size: 0.8rem;
 }
-li{
-    display: flex;
-    /* justify-content: space-between; */
+.list__item p{
+    margin: 0;
 }
-.bgc__indianred{
-    background-color: indianred;
-    border-radius: 4px;
+h3{
+    margin: 0;
+}
+.list__item + .list__item{
+    margin-top: 1em
+}
+.para__date{
+    opacity: 0.7;
+}
+.value{
+    /* color:rgb(154, 205, 50); */
 }
 .section__3--h2{
-    padding: 0.3em 2.5em;
+    padding: 0.1em 4.5em;
     margin: 0.5em;
     color: #FFF;
+    border-radius: 16px;
+}
+.section__3--row{
+    cursor: pointer;
+}
+.toggle__bgc--green{
+    background-color:rgb(154, 205, 50); 
+    border-radius: 4px;
+}
+.toggle__bgc--indianred{
+    background-color: indianred;
+    border-radius: 4px;
 }
 .toggle__bgc--white{
     background-color: white;
@@ -121,3 +169,6 @@ li{
     border-radius: 4px ;
     border: none;
 }
+
+/* color:rgb(205, 92, 92); */
+/* color:rgb(154, 205, 50); */
