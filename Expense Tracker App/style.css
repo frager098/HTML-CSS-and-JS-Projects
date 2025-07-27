@@ -79,6 +79,10 @@ ul:empty::before{
     padding: 0px;
     /* border: 2px solid red; */
 }
+.list__item:focus,.list__item:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
 .name__date{
     display: flex;
     flex-direction: column;
@@ -87,17 +91,17 @@ ul:empty::before{
 }
 .position__date{
     position: relative;
-    /* bottom: 1em; */
+    bottom: 1em;
     font-size: 0.8rem;
 }
 .list__item p{
-    margin: 0;
+    /* margin: 0; */
 }
 h3{
     margin: 0;
 }
 .list__item + .list__item{
-    margin-top: 1em
+    margin-top: 0.5em
 }
 .para__date{
     opacity: 0.7;
