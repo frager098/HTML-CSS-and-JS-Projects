@@ -20,13 +20,32 @@ const listItem = document.querySelector('.list').children
 incomeSection.addEventListener('click', handleClick )    
 expenseSection.addEventListener('click', handleClick)
 formElem.addEventListener("submit", handleFormSubmit )
-list.addEventListener('click',handleEditDelete)
+list.addEventListener('click',handleDelete)
 
-function handleEditDelete(e){
-    target = e.target
-    console.log(target.closest(".list__item"))
-    if (target.closest(".list__item")){
-        list.removeChild(target)
+function handleDelete(e){
+    const target = e.target
+    const item = target.closest(".list__item")
+    const id = item.getAttribute("data-id")
+    if (item){
+        list.removeChild(item);
+        const index = transactions.findIndex(transaction => {
+            if(transaction.id == id )return this;
+    })
+    if(transactions[index].transactionType == "income"){
+        // updateIncome()
+        state.income -= transactions[index].transactionAmount;
+        state.balance = state.income - state.expense;
+    }
+    else{
+        state.expense -= transactions[index].transactionAmount;
+        state.balance = state.income - state.expense;
+        // updateExpense()
+    }
+    updateUI()
+    transactions.splice(index,1);
+    }
+    if(transactions.length == 0) {
+        list.innerHTML ="";
     }
 }
 
@@ -45,16 +64,22 @@ function handleFormSubmit(e){
     e.preventDefault()
     const formData = new FormData(formElem);
     [name,amount,date] = [formData.get('name'),Number(formData.get('amount')),formData.get('date')]
+    // console.log(new Date.toISOString(),"date")
+    // date.defaultValue = new Date().toISOString().split("T")[0];
+    console.log(date.defaultValue);
     const transactionType =  state.incomeFlag == true ? "income" : "expense";
     const transactionData = {
+        id:transactions.length + 1,
         transactionType,
         transactionName:name,
         transactionAmount:amount,
         transactionDate:date
     }
-    transaction.push(transactionData)
+    transactions.push(transactionData)
+    console.log(transactions[transactions.length - 1].transactionAmount,"tt")
+    console.log(Date.now())
     list.innerHTML += `
-    <li class="list__item ">
+    <li class="list__item " data-id="${transactionData.id}">
         <div class="name__date">
             <h3>${name}</h3>
             <p class="position__date para__date">${date}</p>
@@ -100,5 +125,11 @@ function toggleTransactionType(){
 } 
 
 //Initialization
-const transaction = []
+const transactions = []
 let name,amount,date
+const formatter = new Intl.NumberFormat('en-us',{
+    currency:'USD',
+    style:"currency",
+    signDisplay:'always'
+})
+// formatter.format(0).re
