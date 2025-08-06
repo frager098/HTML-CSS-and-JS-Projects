@@ -123,15 +123,10 @@ h3{
     opacity: 0.7;
 }
 .svg__container{
-    /* border: 5px solid yellow; */
     flex-direction: column;
     margin: 0.1em;
     transform: scaleX(0);
     transition: all 200ms;
-    /* border: 1px solid black; */
-    /* border: 2px solid red; */
-    /* position: relative;
-    bottom: 5px; */
 }
 .svg__container svg{
     width: 1em;
@@ -145,11 +140,11 @@ h3{
     transform: scaleX(1);
     transform-origin: right;
 }
-#delete:focus,#delete:hover{
+.delete:focus,.delete:hover{
     fill:rgb(205, 92, 92);
     
 }
-#edit:focus,#edit:hover{
+.edit:focus,.edit:hover{
     fill:rgb(154, 205, 50);
     
 }
