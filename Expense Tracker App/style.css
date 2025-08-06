@@ -15,6 +15,9 @@ body{
     /* border: 1px solid; */
     /* padding: 1em 0em 1em 0; */
 }
+.row{
+    display: flex;
+}
 .section{
     width: 90%;
     margin: 0 auto;
@@ -30,8 +33,7 @@ body{
     font-weight: 400;
     margin-top: 1em;
 }
-.row{
-    display: flex;
+.section__1--row{
     justify-content: space-around;
 }
 h2{
@@ -71,22 +73,33 @@ ul:empty::before{
     content: attr(data-placeholder);
 }
 .list__item{
-    width: 95%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    /* flex: 0; */
+    /* width: 90%; */
+    /* margin: 0 auto; */
+    /* display: flex; */
+    /* justify-content: space-between; */
     padding: 0px;
-    /* border: 2px solid red; */
+    /* align-items: center; */
+    /* flex:1; */
+    /* border: 12px solid pink; */
+}
+.list__item--row{
+    flex-grow: 1;
+    /* width: 90%; */
 }
 .list__item:focus,.list__item:hover{
     border: 1px solid black;
     cursor: pointer;
 }
+.row{
+    /* border: 1px solid green; */
+    /* align-items: center; */
+}
 .name__date{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     /* border: 2px solid green; */
+    /* justify-self:flex-start ; */
+    /* position: relative; */
     
 }
 .position__date{
@@ -94,8 +107,11 @@ ul:empty::before{
     bottom: 1em;
     font-size: 0.8rem;
 }
-.list__item p{
-    /* margin: 0; */
+.value{
+    margin-left: auto;
+}
+.value p {
+    margin: 0;
 }
 h3{
     margin: 0;
@@ -106,8 +122,36 @@ h3{
 .para__date{
     opacity: 0.7;
 }
-.value{
-    /* color:rgb(154, 205, 50); */
+.svg__container{
+    /* border: 5px solid yellow; */
+    flex-direction: column;
+    margin: 0.1em;
+    transform: scaleX(0);
+    transition: all 200ms;
+    /* border: 1px solid black; */
+    /* border: 2px solid red; */
+    /* position: relative;
+    bottom: 5px; */
+}
+.svg__container svg{
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+.svg__container svg + svg{
+    margin-top: 0.5em;
+}
+.list__item:hover .svg__container,.list__item:focus .svg__container{
+    transform: scaleX(1);
+    transform-origin: right;
+}
+#delete:focus,#delete:hover{
+    fill:rgb(205, 92, 92);
+    
+}
+#edit:focus,#edit:hover{
+    fill:rgb(154, 205, 50);
+    
 }
 .section__3--h2{
     padding: 0.1em 4.5em;
