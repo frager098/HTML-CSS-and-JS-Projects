@@ -224,5 +224,8 @@ h3{
 .toggle__submit--container{
     cursor: not-allowed;
 }
+.pointer__events--none{
+    pointer-events: none;
+}
 /* color:rgb(205, 92, 92); */
 /* color:rgb(154, 205, 50); */

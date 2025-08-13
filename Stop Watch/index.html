@@ -34,43 +34,6 @@
         const displayTime = document.getElementsByTagName("h1")[0] ;
         const buttons = document.querySelectorAll(".button");
         let timer = null;
-        // function watchStart(){
-        //     seconds ++ ;
-        //     if(seconds === 60 ){
-        //         seconds = 0 ;
-        //         minutes++;
-        //         if ( minutes === 60 ){
-        //             minutes = 0 ;
-        //             hours ++ ;
-        //         }
-        //     }
-        //         displayTime.innerHTML = getZero(hours) + " :" + getZero (minutes) + " :" + getZero(seconds);  
-            
-        // }
-        //     buttons[1].addEventListener("click" , function (){
-        //             if ( timer !== null){
-        //                 clearInterval(timer);
-        //                 console.log(timer ,"t")
-        //             }
-        //         timer = setInterval(watchStart , 1000);
-        //         }
-        //     )
-        //         buttons[0].addEventListener("click" , function (){
-        //         clearInterval(timer);
-        //     }
-        // )
-        //     buttons[2].addEventListener("click" , function  reset (){
-        //         clearInterval(timer)
-        //         displayTime.innerHTML = "00 : 00 : 00" ;
-        //         seconds = 0 ;
-        //         minutes = 0 ; 
-        //         hours = 0 ;
-        //     }
-        // ) 
-        // console.log("0" + 2)
-        //     function getZero ( number ) {
-        //         return ( number < 10 ? "0" + number : number )
-        //     }
         const stopwatch = {
   timer: null,
   seconds: 0,
@@ -110,8 +73,8 @@
 };
 
 // Event Listeners
-buttons[1].addEventListener("click", () => stopwatch.start());
 buttons[0].addEventListener("click", () => stopwatch.pause());
+buttons[1].addEventListener("click", () => stopwatch.start());
 buttons[2].addEventListener("click", () => stopwatch.reset());
 
 </script>

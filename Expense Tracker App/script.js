@@ -58,37 +58,42 @@ function handleEdit(e){
         const item = target.closest(".list__item")
         if(!item)return;
         toggleSubmitContainer(item);
-        const id = item.getAttribute("data-id")
+        const id = item.getAttribute("data-id");
         const index = transactions.findIndex(transaction => transaction.id == id)
         if(index === -1) return;
         formElem.name.value = transactions[index].transactionName
         formElem.amount.value = transactions[index].transactionAmount
         formElem.date.value = transactions[index].transactionDate;
-        const listItems__local  = [...listItems];
-        // item.style.opacity = "0.5";
+        togglePointerEventsOnListItems(id);
         const svgs = item.querySelector('.svg__container');
         svgs.innerHTML = crossSvg+tickSvg;
         const cross = svgs.querySelector(".svg__cross");
         const tick = svgs.querySelector(".svg__tick");
-        cross.addEventListener('click',() => undoEditedContent(item,svgs));
-        // cross.addEventListener('click',undoEditedContent(item));
-        tick.addEventListener('click',() => saveEditedContent(item,svgs,index))
+        cross.addEventListener('click',() => undoEditedContent(item,svgs,id));
+        tick.addEventListener('click',() => saveEditedContent(item,svgs,index,id))
     }
 }
 function toggleSubmitContainer(item){
-    console.log("what?")
     formElem.submit.classList.toggle("toggle__submit--pointer");
     const submitContainer = document.querySelector('.submit__container');
     submitContainer.classList.toggle("toggle__submit--container");
     item.classList.toggle('opacity');
     formElem.reset()
 }
-function undoEditedContent(item,svgs){
+function togglePointerEventsOnListItems(id){
+    const listItems__local  = [...listItems];
+    listItems__local.forEach((item) => {
+        if(item.getAttribute("data-id") == id) return;
+        item.classList.toggle("pointer__events--none");
+    })
+}
+function undoEditedContent(item,svgs,id){
     toggleSubmitContainer(item)
     svgs.innerHTML = deleteSvg+editSvg
+    togglePointerEventsOnListItems(id)
 
 }
-function saveEditedContent(item,svgs,index){
+function saveEditedContent(item,svgs,index,id){
     const editedTransaction = transactions[index];
     if(editedTransaction.transactionType == "income"){
         console.log(editedTransaction,"amount")
@@ -129,6 +134,7 @@ function saveEditedContent(item,svgs,index){
 
     }
     updateUI();
+    togglePointerEventsOnListItems(id)
 }
 function saveEditedTransaction(e){
     console.log(formElem.name.value,"value")
@@ -152,6 +158,7 @@ function handleFormSubmit(e){
     formElem.reset()
     const transactionData = createTransaction(name,amount,date)
     localStorage.setItem(`transaction-${transactionData.id}`,JSON.stringify(transactionData));
+    
     // const li = `<li></li>`;
     createListItem(transactionData)
     // list.innerHTML += li ;
@@ -168,7 +175,7 @@ function handleFormSubmit(e){
 function createTransaction(name,amount,date){
     const transactionType =  state.incomeFlag == true ? "income" : "expense";
     const transactionData = {
-        id:transactions.length + 1,
+        id:Date.now(),
         transactionType,
         transactionName:name,
         transactionAmount:amount,
