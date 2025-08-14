@@ -6,8 +6,8 @@ body{
     padding: 0;
     font-size: 1rem;
 }
+
 .main{
-    border: 2px solid red;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 8px;
@@ -33,6 +33,7 @@ body{
 .section__1--row{
     justify-content: space-around;
 }
+
 h2{
     margin-bottom: 0;
     line-height: 2;
@@ -50,7 +51,6 @@ h2{
     font-size: 1.25rem;
     font-weight: 600;
 }
-
 ul{
     list-style: none;
     margin: 0;
@@ -58,7 +58,6 @@ ul{
     height: 200px;
     overflow-y: auto;
 }
-
 ul:empty{
     border: 2px dashed #ddd;
     display: grid;
@@ -126,7 +125,6 @@ h3{
     fill:rgb(154, 205, 50);
 }
 .section__3--h2{
-
     padding: 0.1em 0;
     margin: 0.5em;
     color: #FFF;
@@ -170,15 +168,11 @@ h3{
     width: 100%;
     padding: 0.7em;
 }
-
-
 .form__row{
     margin-top: 0.1em;
     margin-bottom: 0.5em;
     justify-content: space-between;
-
 }
-
 .form__col--1 {
     width: 25%;
 }
@@ -192,7 +186,6 @@ h3{
     padding: 1em ;
     border-radius: 4px ;
     border: none;
-    content: "hello";
 }
 .submit:focus,.submit:hover{
     background-color: #2a2d9e;

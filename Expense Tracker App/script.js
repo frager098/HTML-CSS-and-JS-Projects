@@ -17,11 +17,24 @@ const incomeSection = document.querySelector('.section__3--income');
 const expenseSection = document.querySelector('.section__3--expense');
 const deleteButton = document.querySelector('#delete');
 //Event Handlers
-incomeSection.addEventListener('click', handleClick )    
-expenseSection.addEventListener('click', handleClick)
+incomeSection.addEventListener('click', handleIncomeSectionClick)    
+expenseSection.addEventListener('click',handleExpenseSectionClick)    
 formElem.addEventListener("submit", handleFormSubmit )
 list.addEventListener('click',handleDelete)
 list.addEventListener('click',handleEdit)
+
+function handleIncomeSectionClick(){
+    if(state.incomeFlag == true)return;
+    state.incomeFlag = true;
+    toggleTransactionType()
+    console.log("doing now");
+}
+function handleExpenseSectionClick(){
+    if(state.incomeFlag == false)return;
+    state.incomeFlag = false;
+    toggleTransactionType()
+    console.log("doing now");
+}
 
 function handleDelete(e){
     const target = e.target;
@@ -34,15 +47,14 @@ function handleDelete(e){
         const index = transactions.findIndex(transaction => transaction.id == id)
         if(transactions[index].transactionType == "income"){
             state.income -= transactions[index].transactionAmount;
-            state.balance = state.income - state.expense;
         }
         else{
             state.expense -= transactions[index].transactionAmount;
-            state.balance = state.income - state.expense;
         }
-        
-        updateUI()
         transactions.splice(index,1);
+        updateBalance();
+        console.log("ho",state)
+        updateUI()
         if(transactions.length == 0) {
             list.innerHTML ="";
         }
@@ -128,21 +140,11 @@ function saveEditedContent(item,svgs,index,id){
     updateUI();
     togglePointerEventsOnListItems(id)
 }
-function handleClick(e){
-    const classCheckOfSection3Row = section3Row.getAttribute('class').split(" ")[2]
-    if(classCheckOfSection3Row != 'toggle__bgc--green'){
-        state.incomeFlag = true
-        toggleTransactionType()
-    }
-    else{
-        state.incomeFlag = false
-        toggleTransactionType()
-    }
-} 
+
 function handleFormSubmit(e){
     e.preventDefault();
     const formData = new FormData(formElem);
-    [name,amount,date] = [formData.get('name'),Number(formData.get('amount')),formData.get('date')]
+    [name,amount,date] = [formData.get('name'),Number(formData.get('amount')),formData.get('date')] 
     formElem.reset()
     const transactionData = createTransaction(name,amount,date)
     localStorage.setItem(`transaction-${transactionData.id}`,JSON.stringify(transactionData));
@@ -200,10 +202,11 @@ function updateBalance(){
     state.balance = state.income - state.expense;
 }
 function updateUI(){
-    showIncome.textContent = "+$"+state.income;  
-    state.expense!= 0 ? showExpense.textContent = "-$"+state.expense:"$"+state.expense;
+     console.log(state,"state")
+    showIncome.textContent = "+$"+(state.income).toFixed(2);  
+    (state.expense) > 0 ? showExpense.textContent = "-$"+(state.expense).toFixed(2):"$"+(state.expense).toFixed(2);
     const balance = state.balance;
-    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${(Math.abs(balance))}`
+    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${(Math.abs(balance)).toFixed(2)}`
 }
 
 function toggleTransactionType(){
