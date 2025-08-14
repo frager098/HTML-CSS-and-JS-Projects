@@ -5,15 +5,12 @@ body{
     margin: 0;
     padding: 0;
     font-size: 1rem;
-    /* color: #FFF; */
 }
 .main{
-    max-width: 420px;
-    /* width: 90%; */
+    border: 2px solid red;
+    max-width: 400px;
     margin: 0 auto;
     border-radius: 8px;
-    /* border: 1px solid; */
-    /* padding: 1em 0em 1em 0; */
 }
 .row{
     display: flex;
@@ -66,25 +63,16 @@ ul:empty{
     border: 2px dashed #ddd;
     display: grid;
     place-content: center;
-    /* min-height: 170px; */
 }
 
 ul:empty::before{
     content: attr(data-placeholder);
 }
 .list__item{
-    /* width: 90%; */
-    /* margin: 0 auto; */
-    /* display: flex; */
-    /* justify-content: space-between; */
     padding: 0px;
-    /* align-items: center; */
-    /* flex:1; */
-    /* border: 12px solid pink; */
 }
 .list__item--row{
     flex-grow: 1;
-    /* width: 90%; */
 }
 .list__item:focus,.list__item:hover{
     border: 1px solid black;
@@ -131,30 +119,26 @@ h3{
     transform: scaleX(1);
     transform-origin: right;
 }
-/* .delete:focus,.delete:hover,.cross:focus,.cross:hover{
-    fill:rgb(205, 92, 92);
-    font-weight: bold;
-    
-}
-.edit:focus,.edit:hover,.tick:focus,.tick:hover{
-    fill:rgb(154, 205, 50);
-    font-weight: bolder;
-} */
 .svg__container:hover .cross,.svg__container:focus .cross,.svg__container:hover .delete,.svg__container:focus .delete{
     fill:rgb(205, 92, 92);
-    transform: scaleY(1.1 1.1);
 }
 .svg__container:hover .tick,.svg__container:focus .tick,.svg__container:hover .edit,.svg__container:focus .edit{
     fill:rgb(154, 205, 50);
 }
 .section__3--h2{
-    padding: 0.1em 4.5em;
+
+    padding: 0.1em 0;
     margin: 0.5em;
     color: #FFF;
     border-radius: 16px;
+    text-align: center;
 }
 .section__3--row{
     cursor: pointer;
+    justify-content: space-around;
+}
+.section__3--row .col{
+    width: 50%;
 }
 .toggle__bgc--green{
     background-color:rgb(154, 205, 50); 
@@ -167,7 +151,6 @@ h3{
 .toggle__bgc--white{
     background-color: white;
     border-radius: 4px;
-    transition: 0.1;
     color: black;
     transition: all 100ms;
 }
@@ -198,8 +181,6 @@ h3{
 
 .form__col--1 {
     width: 25%;
-    /* border: 1px solid; */
-
 }
 .form__col--2{
     width: 70%;
@@ -227,5 +208,3 @@ h3{
 .pointer__events--none{
     pointer-events: none;
 }
-/* color:rgb(205, 92, 92); */
-/* color:rgb(154, 205, 50); */
