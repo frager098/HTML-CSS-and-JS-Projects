@@ -17,12 +17,30 @@ const incomeSection = document.querySelector('.section__3--income');
 const expenseSection = document.querySelector('.section__3--expense');
 const deleteButton = document.querySelector('#delete');
 //Event Handlers
+formElem.addEventListener("submit", handleFormSubmit )
 incomeSection.addEventListener('click', handleIncomeSectionClick)    
 expenseSection.addEventListener('click',handleExpenseSectionClick)    
-formElem.addEventListener("submit", handleFormSubmit )
 list.addEventListener('click',handleDelete)
 list.addEventListener('click',handleEdit)
 
+function handleFormSubmit(e){
+    e.preventDefault();
+    const formData = new FormData(formElem);
+    [name,amount,date] = [formData.get('name'),Number(formData.get('amount')),formData.get('date')] 
+    formElem.reset()
+    const transactionData = createTransaction(name,amount,date)
+    localStorage.setItem(`transaction-${transactionData.id}`,JSON.stringify(transactionData));
+    createListItem(transactionData)
+    if(state.incomeFlag == true ){
+        state.incomeFlag = false
+        toggleTransactionType();
+        updateIncome(transactionData.transactionAmount);
+    }
+    else{
+        updateExpense(transactionData.transactionAmount);
+    }
+    updateUI()
+}
 function handleIncomeSectionClick(){
     if(state.incomeFlag == true)return;
     state.incomeFlag = true;
@@ -33,7 +51,6 @@ function handleExpenseSectionClick(){
     if(state.incomeFlag == false)return;
     state.incomeFlag = false;
     toggleTransactionType()
-    console.log("doing now");
 }
 
 function handleDelete(e){
@@ -46,14 +63,12 @@ function handleDelete(e){
         localStorage.removeItem(`transaction-${id}`);
         const index = transactions.findIndex(transaction => transaction.id == id)
         if(transactions[index].transactionType == "income"){
-            state.income -= transactions[index].transactionAmount;
+            updateIncome(-(transactions[index].transactionAmount))
         }
         else{
-            state.expense -= transactions[index].transactionAmount;
+            updateExpense(-(transactions[index].transactionAmount));
         }
         transactions.splice(index,1);
-        updateBalance();
-        console.log("ho",state)
         updateUI()
         if(transactions.length == 0) {
             list.innerHTML ="";
@@ -81,20 +96,6 @@ function handleEdit(e){
         cross.addEventListener('click',() => undoEditedContent(item,svgs,id));
         tick.addEventListener('click',() => saveEditedContent(item,svgs,index,id))
     }
-}
-function toggleSubmitContainer(item){
-    formElem.submit.classList.toggle("toggle__submit--pointer");
-    const submitContainer = document.querySelector('.submit__container');
-    submitContainer.classList.toggle("toggle__submit--container");
-    item.classList.toggle('opacity');
-    formElem.reset()
-}
-function togglePointerEventsOnListItems(id){
-    const listItems__local  = [...listItems];
-    listItems__local.forEach((item) => {
-        if(item.getAttribute("data-id") == id) return;
-        item.classList.toggle("pointer__events--none");
-    })
 }
 function undoEditedContent(item,svgs,id){
     toggleSubmitContainer(item)
@@ -130,35 +131,37 @@ function saveEditedContent(item,svgs,index,id){
     tValue.innerHTML = `${state.incomeFlag? "+$":"-$"}${transactions[index].transactionAmount}`;
     if(transactions[index].transactionType == "income"){
         updateIncome(transactions[index].transactionAmount);
-        tValue.style.color = "rgb(154, 205, 50)"
+        tValue.style.color = "rgb(154, 205, 50)";
     }
     else{
         updateExpense(transactions[index].transactionAmount);
-        tValue.style.color = "rgb(205, 92, 92)"
+        tValue.style.color = "rgb(205, 92, 92)";
 
     }
     updateUI();
     togglePointerEventsOnListItems(id)
 }
 
-function handleFormSubmit(e){
-    e.preventDefault();
-    const formData = new FormData(formElem);
-    [name,amount,date] = [formData.get('name'),Number(formData.get('amount')),formData.get('date')] 
+function toggleSubmitContainer(item){
+    formElem.submit.classList.toggle("toggle__submit--pointer");
+    const submitContainer = document.querySelector('.submit__container');
+    submitContainer.classList.toggle("toggle__submit--container");
+    item.classList.toggle('opacity');
     formElem.reset()
-    const transactionData = createTransaction(name,amount,date)
-    localStorage.setItem(`transaction-${transactionData.id}`,JSON.stringify(transactionData));
-    createListItem(transactionData)
-    if(state.incomeFlag == true ){
-        state.incomeFlag = false
-        toggleTransactionType();
-        updateIncome(transactionData.transactionAmount);
-    }
-    else{
-        updateExpense(transactionData.transactionAmount);
-    }
-    updateUI()
 }
+function togglePointerEventsOnListItems(id){
+    const listItems__local  = [...listItems];
+    listItems__local.forEach((item) => {
+        if(item.getAttribute("data-id") == id) return;
+        item.classList.toggle("pointer__events--none");
+    })
+}
+function toggleTransactionType(){
+    incomeSection.classList.toggle('toggle__bgc--white')
+    expenseSection.classList.toggle('toggle__bgc--white')
+    section3Row.classList.toggle('toggle__bgc--green')
+    section3Row.classList.toggle('toggle__bgc--indianred')
+} 
 function createTransaction(name,amount,date){
     const transactionType =  state.incomeFlag == true ? "income" : "expense";
     const transactionData = {
@@ -202,19 +205,13 @@ function updateBalance(){
     state.balance = state.income - state.expense;
 }
 function updateUI(){
-     console.log(state,"state")
-    showIncome.textContent = "+$"+(state.income).toFixed(2);  
-    (state.expense) > 0 ? showExpense.textContent = "-$"+(state.expense).toFixed(2):"$"+(state.expense).toFixed(2);
+    showIncome.textContent = state.income < 100 ?  "$"+(state.income).toFixed(2): "+$"+state.income;  
+    showExpense.textContent = state.expense < 100 ? "$"+(state.expense).toFixed(2):"-$"+(state.expense);
     const balance = state.balance;
-    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${(Math.abs(balance)).toFixed(2)}`
+    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${balance < 100 ? (Math.abs(balance)).toFixed(2) :
+    (Math.abs(balance))
+    }`
 }
-
-function toggleTransactionType(){
-    incomeSection.classList.toggle('toggle__bgc--white')
-    expenseSection.classList.toggle('toggle__bgc--white')
-    section3Row.classList.toggle('toggle__bgc--green')
-    section3Row.classList.toggle('toggle__bgc--indianred')
-} 
 
 //Initialization
 const transactions = []

@@ -6,7 +6,13 @@ body{
     padding: 0;
     font-size: 1rem;
 }
-
+h2{
+    margin-bottom: 0;
+    line-height: 2;
+    font-size: 0.8rem;
+    font-weight:600;
+    font-family: "Poppins",sans-serif;
+}
 .main{
     max-width: 400px;
     margin: 0 auto;
@@ -32,14 +38,6 @@ body{
 }
 .section__1--row{
     justify-content: space-around;
-}
-
-h2{
-    margin-bottom: 0;
-    line-height: 2;
-    font-size: 0.8rem;
-    font-weight:600;
-    font-family: "Poppins",sans-serif;
 }
 .balance__text{
     font-size: 2.25rem;
