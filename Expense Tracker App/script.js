@@ -45,7 +45,6 @@ function handleIncomeSectionClick(){
     if(state.incomeFlag == true)return;
     state.incomeFlag = true;
     toggleTransactionType()
-    console.log("doing now");
 }
 function handleExpenseSectionClick(){
     if(state.incomeFlag == false)return;
@@ -208,8 +207,8 @@ function updateUI(){
     showIncome.textContent = state.income < 100 ?  "$"+(state.income).toFixed(2): "+$"+state.income;  
     showExpense.textContent = state.expense < 100 ? "$"+(state.expense).toFixed(2):"-$"+(state.expense);
     const balance = state.balance;
-    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${balance < 100 ? (Math.abs(balance)).toFixed(2) :
-    (Math.abs(balance))
+    showBalance.textContent = `${(balance > 0 ? "+$": balance < 0 ? "-$":"$")}${(balance < 100 ? (Math.abs(balance)).toFixed(2) :
+    (Math.abs(balance)))
     }`
 }
 
