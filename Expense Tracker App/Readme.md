@@ -1,49 +1,55 @@
-Expense Tracker
+💰 Expense Tracker Web App
 
-A simple Expense Tracker web application built with HTML, CSS, and JavaScript.
-The app allows users to add, view, update, and delete expenses, with data stored in the browser's Local Storage for persistence.
+A simple and user-friendly web application to track your income and expenses, helping you manage your finances effectively.
 
-Features
+✨ Features
 
-Add Expense: Add new transactions with name and amount.
+➕ Add Transactions — Record income and expenses easily.
 
-Edit Expense: Update existing transaction details.
+🗑 Delete Transactions — Remove any entry you don’t need.
 
-Delete Expense: Remove transactions individually.
+💹 Balance Overview — Shows your total balance, income, and expenses.
 
-Persistent Storage: Data is saved in browser Local Storage.
+📱 Responsive Design — Works on desktop and mobile devices.
 
-Responsive Design: Works on desktop and mobile devices.
+💾 Local Storage Support — Your data is saved even after refreshing the page.
 
-Technologies Used
+🚀 Live Demo
 
-HTML5 – Structure of the application.
+🔗 Follow the link to view the app:https://expensetrackerwebapp098.netlify.app/
 
-CSS3 – Styling and layout.
+🛠 Technologies Used
 
-JavaScript (ES6) – Functionality and DOM manipulation.
+HTML5 — Structure of the app
 
-Local Storage API – Persistent data storage in the browser.
+CSS3 — Styling and layout
 
-How It Works
+JavaScript (ES6) — App functionality
 
-Enter the transaction name and amount.
+Local Storage — Data persistence in the browser
 
-Click Add Transaction to save it.
+📌 How to Use
 
-View all transactions in the list.
+Open the app in your browser.
 
-Edit or delete any transaction.
+Enter a transaction name and amount.
 
-Data remains saved even after refreshing or reopening the browser.
+Positive amounts → income
 
-Installation & Usage
+Negative amounts → expense
 
-Clone the repository:
+Click Add Transaction.
 
-git clone https://github.com/frager098/HTML-CSS-and-JS-Projects/tree/main/Expense%20Tracker%20App
- 
+View your balance update instantly.
 
-Open the project folder.
+📂 Project Setup
 
-Open index.html in your preferred browser.
+If you want to run the project locally:
+
+# Clone the repository
+git clone <https://github.com/frager098/HTML-CSS-and-JS-Projects>
+
+# Open the folder
+cd Expense Tracker App
+
+# Open index.html in your browser
