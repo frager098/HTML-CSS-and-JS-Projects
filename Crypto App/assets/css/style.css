@@ -81,13 +81,15 @@ img{
     object-fit: cover;
 }
 
-table tr td img{
+/* , .coin-container .left-section .logo img */
+table tr td img {
     width: 32px;
     height: 32px;
     border-radius:12px ;
     vertical-align: middle;
     margin-right: 6px;
 }
+
 
 .trending table tr td:first-child,
 .search-container .item table tr td:first-child
@@ -554,3 +556,57 @@ footer .social-icons a i{
 .about-container .info button:hover{
     background: var(--links-color);
 }
+
+.coin-container{
+color: #fff;
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin: 40px;
+}
+.coin-container .left-section {
+    width: 30%;
+}
+.coin-container > * {
+    border: 1px solid orange;
+}
+
+.coin-container .left-section  .ticker{
+    background-color: var(--background-color-primary);
+    border-radius:12px;
+    border: 1px solid var(--border-color);
+}
+
+/* .coin-container .trading view-widget-container  */
+
+/* .coin-container .left-section .logo{
+    display: flex;
+    color: var(--color-white);
+    align-items: center;
+}
+.coin-container .left-section .logo h4 span{
+    color: var(--text-secondary);
+}
+.coin-container .left-section .logo p{
+    background-color: var(--background-color-secondary);
+    width: 20px ;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+.coin-container .left-section .status{
+    background-color: var(--background-color-primary);
+}
+
+.coin-container .left-section .status .item{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.coin-container .left-section .status .item .str{
+    color: var(--text-secondary);
+}
+.coin-container .left-section .status .item .num{
+    color:var(--color-white);
+} */
